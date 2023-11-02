@@ -1,3 +1,4 @@
+//variables for the elements made in html
 const list = document.getElementById("list");
 const barcode = document.getElementById("inputCode");
 const quantity = document.getElementById("inputNum");
@@ -84,9 +85,10 @@ allObjects = {
     }
 }
 
-//function for adding an item to the guests cart
+//variable for storing the working total
 var totalAmt = 0;
 
+//function for adding an item to the guests cart
 function addToCart(){
     var itemBox = document.createElement("div");
     var itemName = document.createElement("p");
@@ -114,11 +116,13 @@ function calculate(){
 
 //function for displaying the grand total
 function finish(){
-
     var grandTotal = totalAmt * 1.0925;
     final.innerText = "Your grand total (including tax, 9.25%) is $" + grandTotal.toFixed(2);
 
 }
+
+//checks for if the user to clicked on the add to cart button and displays the item and total without tax
 addItem.addEventListener("click", addToCart);
 
+//checks for if the user clicked on the checkout button and displays the grand total
 checkout.addEventListener("click", finish);
