@@ -1,0 +1,55 @@
+#form{
+    width: 900px;
+    height: 1200px;
+    box-shadow: 5px 5px 70px rgb(75, 71, 71);
+    margin: 30px auto;
+}
+h1{
+    text-align: center;
+    padding: 50px;
+}
+h2{
+    text-align:center;
+}
+#addItemBox h3{
+    margin: 10px 30px;
+    display: inline-block;
+}
+#addItemBox input{
+    display: inline-block;
+    clear: right;
+}
+button{
+    margin: 0px 0px 0px 80%;
+    width: 100px;
+    height: 40px;
+    background: cornflowerblue;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+button:active{
+    background: rgb(73, 114, 191);
+}
+#categories{
+    display: flex;
+    justify-content: space-evenly;
+}
+#categories h3{
+    width: 300px;
+    text-align: center;
+}
+#total{
+    margin: 40px 30px;
+}
+#list div{
+    display: flex;
+    justify-content: space-evenly;
+}
+#list div p{
+    width: 300px;
+    text-align:center;
+}
+#final{
+    margin: 40px 30px;
+}
