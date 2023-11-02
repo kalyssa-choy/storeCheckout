@@ -1,8 +1,7 @@
 #form{
-    width: 900px;
-    height: 1200px;
     box-shadow: 5px 5px 70px rgb(75, 71, 71);
     margin: 30px auto;
+    display:table;
 }
 h1{
     text-align: center;

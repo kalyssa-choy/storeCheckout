@@ -88,23 +88,48 @@ allObjects = {
 //variable for storing the working total
 var totalAmt = 0;
 
+//function that compares the scanned barcode and the items already in the list
+function checkElement(addedBar){
+    var boxes = document.querySelectorAll(".itemBox");
+    for (var i = 0; i < boxes.length; i++){
+        if(allObjects[addedBar].name === boxes[i].querySelector(".name").innerText){
+            return boxes[i];
+        }
+    }
+}
 //function for adding an item to the guests cart
-function addToCart(){
+function addToCart(){ 
+
     var itemBox = document.createElement("div");
+    itemBox.classList.add("itemBox");
     var itemName = document.createElement("p");
+    itemName.classList.add("name");
     var itemPrice = document.createElement("p");
     var itemNum = document.createElement("p");
+    itemNum.classList.add("quantity");
 
-    itemName.innerText = allObjects[barcode.value].name;
-    itemPrice.innerText = "$" + allObjects[barcode.value].price;
-    itemNum.innerText = quantity.value;
+    //checking if the item is already in the list
+    let element = checkElement(barcode.value);
 
-    itemBox.appendChild(itemName);
-    itemBox.appendChild(itemPrice);
-    itemBox.appendChild(itemNum);
+    if(element){
+        let ogQuan = element.querySelector(".quantity").innerText;
+        element.querySelector(".quantity").innerText =  parseInt(ogQuan) + parseInt(quantity.value);
+    }
 
-    list.appendChild(itemBox);
+    //adds the item if not already in  the list
+    else{
+        itemName.innerText = allObjects[barcode.value].name;
+        itemPrice.innerText = "$" + allObjects[barcode.value].price;
+        itemNum.innerText = quantity.value;
 
+        
+        itemBox.appendChild(itemName);
+        itemBox.appendChild(itemPrice);
+        itemBox.appendChild(itemNum);
+
+        list.appendChild(itemBox);
+    }
+    
     calculate();
 }
 
